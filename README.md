@@ -30,6 +30,8 @@ Then a sample pull request title would be:
 
 > Feature: shake the phone to send feedback email
 
+This project itself is using this PR convention and the changelog generated with it can be found in https://github.com/schibsted/pr_changelog/releases
+
 ## Installation
 
 Add this line to your application's Gemfile:
