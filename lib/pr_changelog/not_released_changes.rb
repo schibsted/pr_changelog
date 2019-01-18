@@ -97,8 +97,8 @@ module PrChangelog
       merge_commits_not_merged_into_base_ref
         .split('- ')
         .reject(&:empty?)
-        .reject { |line| line.match(MERGE_BRANCH_COMMIT_FORMAT) }
         .map { |e| e.split("\n") }
+        .select { |pair| pair.count == 2 }
     end
 
     def format_merge_commit(github_commit_title, commit_title)
