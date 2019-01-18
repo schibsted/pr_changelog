@@ -20,6 +20,8 @@
   Improvement: Add support for opening external links in Daily Summary
 - GitHub Enterprise: Merge pull request #76 from schibsted_repo/internal/use-the-beta-track-to-publish-the-app
   Internal: use beta track for releasing the app
+- andrey-volobuev: Resolved merge conflicts. Fixed schedule update bug for collapsed sections
+
 - GitHub Enterprise: Merge pull request #75 from schibsted_repo/fix/update-feedback-email
   Fix: update feedback email
 - GitHub Enterprise: Merge pull request #70 from schibsted_repo/improvement/daily-summary-polish
@@ -36,6 +38,7 @@
   Internal: update the feedback email
 - GitHub Enterprise: Merge pull request #71 from schibsted_repo/internal/send-app-version-to-the-backend
   Internal: send `peil-app-version` on every request to the backend
+- andrey-volobuev: Resolved conflicts
 - GitHub Enterprise: Merge pull request #69 from schibsted_repo/improvment/use-open-sans-as-base-font
   Improvement: use open-sans as base font for text
 - GitHub Enterprise: Merge pull request #67 from schibsted_repo/fix/swipe-cards-daily-summary
