@@ -2,3 +2,9 @@
 # frozen_string_literal: true
 
 require 'pr_changelog'
+
+begin
+  PrChangelog::CLI.new(ARGV).run
+rescue StandardError
+  puts PrChangelog::CLI::HELP_TEXT
+end
