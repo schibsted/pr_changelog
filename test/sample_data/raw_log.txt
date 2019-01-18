@@ -1,0 +1,64 @@
+- GitHub Enterprise: Merge pull request #86 from schibsted_repo/internal/update-to-android-studio-3.3
+  Internal: Update to android studio 3.3
+- GitHub Enterprise: Merge pull request #87 from schibsted_repo/feature/settings
+  Improvement: Update system notification channels from backend
+- GitHub Enterprise: Merge pull request #85 from schibsted_repo/feature/settings
+  Feature: Notification settings UI and sync with backend and system settings
+- GitHub Enterprise: Merge pull request #84 from schibsted_repo/improvement/support-card-stories-in-feed
+  Improvement: allow cards format to be used not only on the weekly summary
+- GitHub Enterprise: Merge pull request #82 from schibsted_repo/internal/fix-notification-keys
+  Internal: fix the notification keys
+- GitHub Enterprise: Merge pull request #81 from schibsted_repo/fix/do-not-allow-shake-for-feedback-with-phone-in-background
+  Fix: only present feedback email dialog if app is on foreground
+- GitHub Enterprise: Merge pull request #80 from schibsted_repo/improvement/add-app-version-number-to-feedback-email
+  Improvement: Add app version number to the placeholder feedback email
+- GitHub Enterprise: Merge pull request #79 from schibsted_repo/fix/author-image-fetch-size
+  Fix: dimensions to fetch the avatar images
+- GitHub Enterprise: Merge pull request #78 from schibsted_repo/fix/update-feedback-email-again
+  Fix: update the feedback email to peil-android@schibsted.com
+- GitHub Enterprise: Merge pull request #77 from schibsted_repo/improvement/open-external-links-on-daily-summary-stories
+  Improvement: Add support for opening external links in Daily Summary
+- GitHub Enterprise: Merge pull request #76 from schibsted_repo/internal/use-the-beta-track-to-publish-the-app
+  Internal: use beta track for releasing the app
+- GitHub Enterprise: Merge pull request #75 from schibsted_repo/fix/update-feedback-email
+  Fix: update feedback email
+- GitHub Enterprise: Merge pull request #70 from schibsted_repo/improvement/daily-summary-polish
+  Improvement: Daily Summary polish
+- Felipe Espinoza: Merge branch 'master' into improvement/daily-summary-polish
+
+- GitHub Enterprise: Merge pull request #68 from schibsted_repo/fix/opening-canvas-stories-on-weekly-summary
+  Fix: allow opening canvas stories from the weekly summary
+- GitHub Enterprise: Merge pull request #74 from schibsted_repo/improvement/ignore-last-segment-on-daily-summary
+  Improvement: remove card about push notifications in Daily Summary
+- GitHub Enterprise: Merge pull request #73 from schibsted_repo/fix/font-in-top-stories
+  Improvement: remove unnecessary BodyText style
+- GitHub Enterprise: Merge pull request #72 from schibsted_repo/fix/update-feedback-email
+  Internal: update the feedback email
+- GitHub Enterprise: Merge pull request #71 from schibsted_repo/internal/send-app-version-to-the-backend
+  Internal: send `peil-app-version` on every request to the backend
+- GitHub Enterprise: Merge pull request #69 from schibsted_repo/improvment/use-open-sans-as-base-font
+  Improvement: use open-sans as base font for text
+- GitHub Enterprise: Merge pull request #67 from schibsted_repo/fix/swipe-cards-daily-summary
+  Fix: Swipe on text in Daily Summary
+- GitHub Enterprise: Merge pull request #66 from schibsted_repo/internal/fix-formatting-on-xml-files
+  Internal: fix code style for xml files
+- GitHub Enterprise: Merge pull request #64 from schibsted_repo/improvement/visual-refinements-for-canvas-stories
+  Improvement: visual refinements for canvas 2.0
+- GitHub Enterprise: Merge pull request #65 from schibsted_repo/internal/xml-formatting
+  Internal: add formatting rules for xml files
+- GitHub Enterprise: Merge pull request #63 from schibsted_repo/feature/footer-story
+  Feature: Add Footer story
+- GitHub Enterprise: Merge pull request #57 from schibsted_repo/images
+  Improvement: Memory performance tweaks
+- Felipe Espinoza: Merge branch 'master' into images
+
+- GitHub Enterprise: Merge pull request #61 from schibsted_repo/feature/shake-phone-for-feedback
+  Feature: shake the phone to send feedback email
+- Felipe Espinoza: Merge branch 'master' into images
+
+- GitHub Enterprise: Merge pull request #62 from schibsted_repo/improvement/visual-polishing-for-top-stories
+  Improvement: visual polishing for top stories
+- GitHub Enterprise: Merge pull request #60 from schibsted_repo/add-crash-reporting-with-hockeyapp
+  Internal: setup hockeyapp for crash reporting
+- GitHub Enterprise: Merge pull request #59 from schibsted_repo/improvement/open-external-links-for-canvas-stories
+  Improvement: support opening external links on canvas stories

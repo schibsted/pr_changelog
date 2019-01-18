@@ -1,0 +1,31 @@
+## Changes since 0.3.0 to 0.5.0
+
+- #86: Internal: Update to android studio 3.3
+- #87: Improvement: Update system notification channels from backend
+- #85: Feature: Notification settings UI and sync with backend and system settings
+- #84: Improvement: allow cards format to be used not only on the weekly summary
+- #82: Internal: fix the notification keys
+- #81: Fix: only present feedback email dialog if app is on foreground
+- #80: Improvement: Add app version number to the placeholder feedback email
+- #79: Fix: dimensions to fetch the avatar images
+- #78: Fix: update the feedback email to peil-android@schibsted.com
+- #77: Improvement: Add support for opening external links in Daily Summary
+- #76: Internal: use beta track for releasing the app
+- #75: Fix: update feedback email
+- #70: Improvement: Daily Summary polish
+- #68: Fix: allow opening canvas stories from the weekly summary
+- #74: Improvement: remove card about push notifications in Daily Summary
+- #73: Improvement: remove unnecessary BodyText style
+- #72: Internal: update the feedback email
+- #71: Internal: send `peil-app-version` on every request to the backend
+- #69: Improvement: use open-sans as base font for text
+- #67: Fix: Swipe on text in Daily Summary
+- #66: Internal: fix code style for xml files
+- #64: Improvement: visual refinements for canvas 2.0
+- #65: Internal: add formatting rules for xml files
+- #63: Feature: Add Footer story
+- #57: Improvement: Memory performance tweaks
+- #61: Feature: shake the phone to send feedback email
+- #62: Improvement: visual polishing for top stories
+- #60: Internal: setup hockeyapp for crash reporting
+- #59: Improvement: support opening external links on canvas stories
