@@ -1,8 +1,18 @@
 # PR Changelog
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pr_changelog`. To experiment with that code, run `bin/console` for an interactive prompt.
+A script to generate a nice list of changes given two git references.
 
-TODO: Delete this and the text above, and describe your gem
+It takes in account all the merged pull request to master between the two given references, then it formats it in a nice consumable way.
+
+To be effective, this script requires that you follow simple conventions:
+
+1. Your pull request titles must be written as changelog entries
+2. (Optional) Your project has git tags for each version you release (example: `0.3.0`)
+3. (Optional) Your pull request titles begin with some sort of tag (`Feature`, `Improvement`, `Fix`, `Internal`)
+
+Then a sample pull request title would be:
+
+> Feature: shake the phone to send feedback email
 
 ## Installation
 
@@ -14,25 +24,65 @@ gem 'pr_changelog'
 
 And then execute:
 
-    $ bundle
+```shell
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install pr_changelog
+```shell
+$ gem install pr_changelog
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+To get the changes between to git tags `0.3.0` and `0.5.0`, execute:
 
-## Development
+```
+$ pr_changelog 0.3.0 0.5.0
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Will produce:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```markdown
+## Changes since 0.3.0 to 0.5.0
+
+[New features]
+  - #61: ⭐️ Shake the phone to send feedback email
+
+[Improvements]
+  - #64: 💎 Visual refinements for canvas 2.0
+  - #57: 💎 Memory performance tweaks
+  - #62: 💎 Visual polishing for top stories
+
+[Internal]
+  - #65: 👨‍💻 Add formatting rules for xml files
+  - #60: 👨‍💻 Setup hockeyapp for crash reporting
+```
+
+or
+
+```
+$ pr_changelog --format plain 0.3.0 0.5.0
+```
+
+Will produce something like:
+
+```markdown
+## Changes from 0.3.0 to 0.5.0
+
+- #64: Improvement: visual refinements for canvas 2.0
+- #65: Internal: add formatting rules for xml files
+- #63: Feature: Add Footer story
+- #57: Improvement: Memory performance tweaks
+- #61: Feature: shake the phone to send feedback email
+- #62: Improvement: visual polishing for top stories
+- #60: Internal: setup hockeyapp for crash reporting
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/fespinoza/pr_changelog. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/schibsted/pr_changelog. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +90,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the PrChangelog project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/fespinoza/pr_changelog/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the `pr_changelog` project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/schibsted/pr_changelog/blob/master/CODE_OF_CONDUCT.md).
