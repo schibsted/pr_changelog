@@ -27,7 +27,7 @@ module PrChangelog
     }.freeze
 
     def formatted_changelog
-      if formatted_change_list.positive?
+      if formatted_change_list.count.positive?
         formatted_change_list.join("\n")
       else
         "There are no changes since #{base_ref} to #{current_ref}"
@@ -58,7 +58,7 @@ module PrChangelog
           tag   = pair[0]
           lines = pair[1].map { |l| "  #{l}" }.join("\n")
           string + "#{tag}\n#{lines}\n\n"
-        end.chomp
+        end.strip.chomp
       else
         "There are no changes since #{base_ref} to #{current_ref}"
       end
