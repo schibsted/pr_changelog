@@ -1,6 +1,22 @@
 # PR Changelog
 
-A script to generate a nice list of changes given two git references.
+A script to generate a nice list of changes given two git references, like so:
+
+```markdown
+## Changes since 0.3.0 to 0.5.0
+
+[New features]
+  - #61: ⭐️ Shake the phone to send feedback email
+
+[Improvements]
+  - #64: 💎 Visual refinements for canvas 2.0
+  - #57: 💎 Memory performance tweaks
+  - #62: 💎 Visual polishing for top stories
+
+[Internal]
+  - #65: 👨‍💻 Add formatting rules for xml files
+  - #60: 👨‍💻 Setup hockeyapp for crash reporting
+```
 
 It takes in account all the merged pull request to master between the two given references, then it formats it in a nice consumable way.
 
