@@ -1,5 +1,3 @@
-## Changes since 0.3.0 to 0.5.0
-
 - #86: Internal: Update to android studio 3.3
 - #87: Improvement: Update system notification channels from backend
 - #85: Feature: Notification settings UI and sync with backend and system settings

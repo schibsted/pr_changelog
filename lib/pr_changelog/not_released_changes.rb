@@ -4,16 +4,16 @@ module PrChangelog
   # Calculates a list of not released changes from `base_ref` to `current_ref`
   # those changes consist of the merged pull-request title
   class NotReleasedChanges
-    LOG_FORMAT = '- %cn: %s%n%w(80, 2, 2)%b'
     GITHUB_MERGE_COMMIT_FORMAT = /Merge pull request (?<pr_number>#\d+) .*/.freeze
     MERGE_BRANCH_COMMIT_FORMAT = /(Merge branch '.*'\s?(into|of)? .*)|(Merge .* branch .*)/.freeze
     PARSED_MERGE_COMMIT_FORMAT = /^- #(?<pr_number>\d+):\s+(?<tag>[^\s]+):\s*(?<title>.*)$/.freeze
 
-    attr_reader :base_ref, :current_ref
+    attr_reader :base_ref, :current_ref, :git_proxy
 
-    def initialize(base_ref, current_ref)
+    def initialize(base_ref, current_ref, git_proxy = GitProxy.new)
       @base_ref    = base_ref
       @current_ref = current_ref
+      @git_proxy   = git_proxy
     end
 
     Tag = Struct.new(:emoji, :title, :sort)
@@ -27,7 +27,7 @@ module PrChangelog
     }.freeze
 
     def formatted_changelog
-      if formatted_change_list.positive?
+      if formatted_change_list.count.positive?
         formatted_change_list.join("\n")
       else
         "There are no changes since #{base_ref} to #{current_ref}"
@@ -58,7 +58,7 @@ module PrChangelog
           tag   = pair[0]
           lines = pair[1].map { |l| "  #{l}" }.join("\n")
           string + "#{tag}\n#{lines}\n\n"
-        end.chomp
+        end.strip.chomp
       else
         "There are no changes since #{base_ref} to #{current_ref}"
       end
@@ -108,7 +108,7 @@ module PrChangelog
     end
 
     def merge_commits_not_merged_into_base_ref
-      `git log --merges #{base_ref}..#{current_ref} --format='#{LOG_FORMAT}'`
+      git_proxy.merge_commits_between(base_ref, current_ref)
     end
 
     def pull_request_number_for(github_commit_title)
