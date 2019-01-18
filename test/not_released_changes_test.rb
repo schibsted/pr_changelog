@@ -38,4 +38,3 @@ class NotReleasedChangesTest < Minitest::Test
     File.readlines(file_name).join('').chomp
   end
 end
-

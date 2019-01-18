@@ -89,8 +89,8 @@ Will produce something like:
 
 - #64: Improvement: visual refinements for canvas 2.0
 - #65: Internal: add formatting rules for xml files
-- #63: Feature: Add Footer story
-- #57: Improvement: Memory performance tweaks
+- #63: Feature: add Footer story
+- #57: Improvement: memory performance tweaks
 - #61: Feature: shake the phone to send feedback email
 - #62: Improvement: visual polishing for top stories
 - #60: Internal: setup hockeyapp for crash reporting
