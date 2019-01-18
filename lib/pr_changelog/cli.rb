@@ -21,7 +21,7 @@ module PrChangelog
     attr_reader :format, :from_reference, :to_reference
 
     def initialize(args)
-      @format = 'pretty'
+      @format = 'plain'
       if args.include?('--format')
         next_index = args.index('--format') + 1
         @format = args.fetch(next_index)
