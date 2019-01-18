@@ -27,9 +27,9 @@ module PrChangelog
     attr_reader :format, :from_reference, :to_reference
 
     def initialize(args)
-      @format = 'pretty'
       throw HelpWanted if args.include?('--help') || args.include?('-h')
 
+      @format = 'plain'
       if args.include?('--format')
         next_index = args.index('--format') + 1
         @format = args.delete_at(next_index)
