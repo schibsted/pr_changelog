@@ -18,19 +18,35 @@ module PrChangelog
         $ pr_changelog
     HELP
 
+    class InvalidInputs < StandardError
+    end
+
+    class HelpWanted < StandardError
+    end
+
     attr_reader :format, :from_reference, :to_reference
 
     def initialize(args)
       @format = 'pretty'
+      throw HelpWanted if args.include?('--help') || args.include?('-h')
+
       if args.include?('--format')
         next_index = args.index('--format') + 1
-        @format = args.fetch(next_index)
+        @format = args.delete_at(next_index)
+        args.delete('--format')
       end
+
       @from_reference, @to_reference = args.last(2)
+
+      return if @from_reference && @to_reference
+
+      throw InvalidInputs.new
     end
 
     def run
       changes = NotReleasedChanges.new(from_reference, to_reference)
+      puts "## Changes since #{from_reference} to #{to_reference}\n\n"
+
       if format == 'pretty'
         puts changes.grouped_formatted_changelog
       else

@@ -26,7 +26,7 @@ module PrChangelog
       if parsed_change_list.count.positive?
         parsed_change_list.map(&:to_s).join("\n")
       else
-        "There are no changes since #{base_ref} to #{current_ref}"
+        no_changes_found
       end
     end
 
@@ -34,11 +34,15 @@ module PrChangelog
       if parsed_change_list.count.positive?
         GroupedChanges.new(parsed_change_list, EMOJI_TAGS).to_s
       else
-        "There are no changes since #{base_ref} to #{current_ref}"
+        no_changes_found
       end
     end
 
     private
+
+    def no_changes_found
+      'No changes found'
+    end
 
     def parsed_change_list
       @parsed_change_list ||= parsed_merge_commits.map do |pair|
