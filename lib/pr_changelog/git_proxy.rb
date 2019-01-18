@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module PrChangelog
+  # A boundary class between git and the rest of the gem
   class GitProxy
     LOG_FORMAT = '- %cn: %s%n%w(80, 2, 2)%b'
 
