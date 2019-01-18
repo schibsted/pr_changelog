@@ -1,0 +1,7 @@
+[
+  {
+    "prefix": "feature",
+    "emoji": "⭐️",
+    "title": "New features"
+  }
+]

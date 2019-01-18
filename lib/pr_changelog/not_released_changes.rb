@@ -6,13 +6,6 @@ module PrChangelog
   class NotReleasedChanges
     MERGE_COMMIT_FORMAT = /Merge pull request (?<pr_number>#\d+) .*/.freeze
     TAGGED_TITLE = /^(?<tag>.+):\s*(?<title>.+)$/.freeze
-    EMOJI_TAGS = {
-      'feature' => Tag.new('⭐️', 'New features', 0),
-      'fix' => Tag.new('🐛', 'Fixes', 1),
-      'improvement' => Tag.new('💎', 'Improvements', 2),
-      'internal' => Tag.new('👨‍💻', 'Internal', 4),
-      'unclassified' => Tag.new('❓', 'Unclassified', 5)
-    }.freeze
 
     attr_reader :base_ref, :current_ref, :git_proxy
 
@@ -20,6 +13,16 @@ module PrChangelog
       @base_ref    = base_ref
       @current_ref = current_ref
       @git_proxy   = git_proxy
+    end
+
+    def emoji_tags
+      tags = {}
+
+      PrChangelog.config.each_with_index do |item, index|
+        tags[item[:prefix]] = Tag.new(item[:emoji], item[:title], index)
+      end
+
+      tags
     end
 
     def formatted_changelog
@@ -32,7 +35,7 @@ module PrChangelog
 
     def grouped_formatted_changelog
       if parsed_change_list.count.positive?
-        GroupedChanges.new(parsed_change_list, EMOJI_TAGS).to_s
+        GroupedChanges.new(parsed_change_list, emoji_tags).to_s
       else
         "There are no changes since #{base_ref} to #{current_ref}"
       end
