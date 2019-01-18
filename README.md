@@ -58,6 +58,26 @@ To get the changes between to git tags `0.3.0` and `0.5.0`, execute:
 $ pr_changelog 0.3.0 0.5.0
 ```
 
+Will produce something like:
+
+```markdown
+## Changes from 0.3.0 to 0.5.0
+
+- #64: Improvement: visual refinements for canvas 2.0
+- #65: Internal: add formatting rules for xml files
+- #63: Feature: add Footer story
+- #57: Improvement: memory performance tweaks
+- #61: Feature: shake the phone to send feedback email
+- #62: Improvement: visual polishing for top stories
+- #60: Internal: setup hockeyapp for crash reporting
+```
+
+or
+
+```
+$ pr_changelog --format pretty 0.3.0 0.5.0
+```
+
 Will produce:
 
 ```markdown
@@ -74,26 +94,6 @@ Will produce:
 [Internal]
   - #65: 👨‍💻 Add formatting rules for xml files
   - #60: 👨‍💻 Setup hockeyapp for crash reporting
-```
-
-or
-
-```
-$ pr_changelog --format plain 0.3.0 0.5.0
-```
-
-Will produce something like:
-
-```markdown
-## Changes from 0.3.0 to 0.5.0
-
-- #64: Improvement: visual refinements for canvas 2.0
-- #65: Internal: add formatting rules for xml files
-- #63: Feature: add Footer story
-- #57: Improvement: memory performance tweaks
-- #61: Feature: shake the phone to send feedback email
-- #62: Improvement: visual polishing for top stories
-- #60: Internal: setup hockeyapp for crash reporting
 ```
 
 ## Contributing

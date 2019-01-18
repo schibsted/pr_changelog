@@ -9,7 +9,7 @@ module PrChangelog
       [Options]
 
         -h, --help\tShow this help
-        --format FORMAT_NAME\t(default "pretty"), options ("pretty", "plain")
+        --format FORMAT_NAME\t(default "plain"), options ("pretty", "plain")
 
       [Examples]
 
@@ -31,10 +31,10 @@ module PrChangelog
 
     def run
       changes = NotReleasedChanges.new(from_reference, to_reference)
-      if format == 'plain'
-        puts changes.formatted_changelog
-      else
+      if format == 'pretty'
         puts changes.grouped_formatted_changelog
+      else
+        puts changes.formatted_changelog
       end
     end
   end
