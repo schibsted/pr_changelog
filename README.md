@@ -1,5 +1,7 @@
 # PR Changelog
 
+[![Gem Version](https://badge.fury.io/rb/pr_changelog.svg)](https://badge.fury.io/rb/pr_changelog)
+
 A script to generate a nice list of changes given two git references, like so:
 
 ```markdown
