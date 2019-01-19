@@ -19,7 +19,7 @@ class ConfigTest < Minitest::Test
   end
 
   def test_load_file
-    PrChangelog::Config.file = 'test/sample_data/pr_changelog_config.txt'
+    PrChangelog::Config.file = 'test/sample_data/pr_changelog_config.json'
 
     assert_equal Array, PrChangelog::Config.load.class
     assert_equal 1, PrChangelog::Config.load.length

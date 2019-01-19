@@ -98,26 +98,28 @@ Will produce:
 
 ## Configuration
 
-Change the emojis or add your own in a `.pr_changelog` file:
+Change the emojis or add your own in a `.pr_changelog.json` file:
 
 ```
-[
-  {
-    prefix: "feature",
-    emoji: "⭐️",
-    title: "New features"
-  },
-  {
-    prefix: "improvement",
-    emoji: "💎",
-    title: "Improvements"
-  },
-  {
-    prefix: "unclassified",
-    emoji: "❓",
-    title: "Unclassified"
-  }
-]
+{
+  "tags": [
+    {
+      "prefix": "feature",
+      "emoji": "⭐️",
+      "title": "New features"
+    },
+    {
+      "prefix": "improvement",
+      "emoji": "💎",
+      "title": "Improvements"
+    },
+    {
+      "prefix": "unclassified",
+      "emoji": "❓",
+      "title": "Unclassified"
+    }
+  ]
+}
 ```
 
 ## Contributing

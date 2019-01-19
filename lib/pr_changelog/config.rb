@@ -5,7 +5,7 @@ require 'json'
 module PrChangelog
   # Loads the configuration
   module Config
-    @file = '.pr_changelog'
+    @file = '.pr_changelog.json'
 
     DEFAULTS = [
       {
@@ -37,12 +37,12 @@ module PrChangelog
 
     def self.load
       if File.exist?(@file)
-        JSON.parse(File.read(@file), symbolize_names: true)
+        JSON.parse(File.read(@file), symbolize_names: true)[:tags]
       else
         DEFAULTS
       end
     end
-    
+
     def self.file=(file)
       @file = file
     end
