@@ -100,6 +100,32 @@ Will produce:
   - #60: 👨‍💻 Setup hockeyapp for crash reporting
 ```
 
+## Configuration
+
+Change the emojis or add your own in a `.pr_changelog.json` file:
+
+```
+{
+  "tags": [
+    {
+      "prefix": "feature",
+      "emoji": "⭐️",
+      "title": "New features"
+    },
+    {
+      "prefix": "improvement",
+      "emoji": "💎",
+      "title": "Improvements"
+    },
+    {
+      "prefix": "unclassified",
+      "emoji": "❓",
+      "title": "Unclassified"
+    }
+  ]
+}
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/schibsted/pr_changelog. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
