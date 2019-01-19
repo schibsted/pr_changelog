@@ -33,7 +33,7 @@ module PrChangelog
         emoji: '❓',
         title: 'Unclassified'
       }
-    ]
+    ].freeze
 
     def self.load
       if File.exist?(@file)
