@@ -29,7 +29,7 @@ module PrChangelog
     def initialize(args)
       throw HelpWanted if args.include?('--help') || args.include?('-h')
 
-      @format = 'plain'
+      @format = PrChangelog.config.default_format
       if args.include?('--format')
         next_index = args.index('--format') + 1
         @format = args.delete_at(next_index)

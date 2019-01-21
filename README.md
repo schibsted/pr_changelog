@@ -104,7 +104,7 @@ Will produce:
 
 Change the emojis or add your own in a `.pr_changelog.json` file:
 
-```
+```json
 {
   "tags": [
     {
