@@ -38,7 +38,7 @@ module PrChangelog
 
     def initialize(file = nil)
       @file = file || '.pr_changelog.json'
-      @loaded_data = nil
+      @loaded_data = {}
 
       return unless File.exist?(@file)
 
@@ -46,19 +46,11 @@ module PrChangelog
     end
 
     def default_format
-      if loaded_data
-        loaded_data[:format]
-      else
-        DEFAULTS[:format]
-      end
+      loaded_data[:format] || DEFAULTS[:format]
     end
 
     def tags
-      if loaded_data
-        loaded_data[:tags]
-      else
-        DEFAULTS[:tags]
-      end
+      loaded_data[:tags] || DEFAULTS[:tags]
     end
 
     private
