@@ -37,6 +37,7 @@ module PrChangelog
       end
 
       @from_reference, @to_reference = args.last(2)
+      @to_reference ||= 'master'
 
       return if @from_reference && @to_reference
 
