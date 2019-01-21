@@ -6,6 +6,7 @@ module PrChangelog
   # Loads the configuration
   class Config
     DEFAULTS = {
+      format: 'plain',
       tags: [
         {
           prefix: 'feature',
@@ -42,6 +43,14 @@ module PrChangelog
       return unless File.exist?(@file)
 
       @loaded_data = JSON.parse(File.read(@file), symbolize_names: true)
+    end
+
+    def default_format
+      if loaded_data
+        loaded_data[:format]
+      else
+        DEFAULTS[:format]
+      end
     end
 
     def tags
