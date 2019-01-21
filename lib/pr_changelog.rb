@@ -13,6 +13,6 @@ require 'pr_changelog/not_released_changes'
 # Main module
 module PrChangelog
   def self.config
-    Config.load
+    @config ||= Config.new
   end
 end

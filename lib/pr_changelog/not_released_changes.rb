@@ -18,7 +18,7 @@ module PrChangelog
     def emoji_tags
       tags = {}
 
-      PrChangelog.config.each_with_index do |item, index|
+      PrChangelog.config.tags.each_with_index do |item, index|
         tags[item[:prefix]] = Tag.new(item[:emoji], item[:title], index)
       end
 
