@@ -8,5 +8,9 @@ module PrChangelog
     def merge_commits_between(base_ref, current_ref)
       `git log --merges #{base_ref}..#{current_ref} --format='#{LOG_FORMAT}'`
     end
+
+    def git_tags_list
+      `git tag --list`.split("\n")
+    end
   end
 end
