@@ -3,7 +3,6 @@
 module PrChangelog
   # Used for the implementation of the exposed executable for this gem
   class CLI
-
     class Args
       def initialize(raw_args)
         @raw_args = raw_args
@@ -68,10 +67,9 @@ module PrChangelog
     class CannotDetermineRelease < StandardError
     end
 
-
     def initialize(raw_args, releases = nil)
       args = Args.new(raw_args)
-      raise HelpWanted.new if args.include_flags?('-h', '--help')
+      raise HelpWanted if args.include_flags?('-h', '--help')
 
       @format = args.value_for('--format') || PrChangelog.config.default_format
 
@@ -90,7 +88,7 @@ module PrChangelog
 
       return if @from_reference && @to_reference
 
-      raise InvalidInputs.new
+      raise InvalidInputs
     end
 
     def run
