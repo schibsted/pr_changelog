@@ -27,7 +27,7 @@ module PrChangelog
     attr_reader :format, :from_reference, :to_reference
 
     def initialize(args)
-      throw HelpWanted if args.include?('--help') || args.include?('-h')
+      raise HelpWanted.new if args.include?('--help') || args.include?('-h')
 
       @format = PrChangelog.config.default_format
       if args.include?('--format')
@@ -41,7 +41,7 @@ module PrChangelog
 
       return if @from_reference && @to_reference
 
-      throw InvalidInputs.new
+      raise InvalidInputs.new
     end
 
     def run
