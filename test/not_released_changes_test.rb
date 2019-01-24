@@ -21,7 +21,7 @@ class NotReleasedChangesTest < Minitest::Test
       'test/sample_data/plain_format.txt'
     )
 
-    assert_equal changes.formatted_changelog, sample_plain_changelog
+    assert_equal sample_plain_changelog, changes.formatted_changelog
   end
 
   def test_pretty_format
@@ -29,7 +29,7 @@ class NotReleasedChangesTest < Minitest::Test
       'test/sample_data/pretty_format.txt'
     )
 
-    assert_equal changes.grouped_formatted_changelog, sample_pretty_changelog
+    assert_equal sample_pretty_changelog, changes.grouped_formatted_changelog
   end
 
   private
