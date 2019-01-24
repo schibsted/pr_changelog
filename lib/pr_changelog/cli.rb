@@ -43,7 +43,7 @@ module PrChangelog
 
       [Examples]
 
-        Listing the changes for the last release (since the previous to the last one)
+        Listing the unreleased changes
 
         $ pr_changelog
     HELP
@@ -63,8 +63,10 @@ module PrChangelog
 
       @format = args.value_for('--format') || PrChangelog.config.default_format
 
+      @releases = releases || Releases.new
 
       @from_reference, @to_reference = args.last(2)
+      @from_reference ||= @releases.last_release
       @to_reference ||= 'master'
 
       return if @from_reference && @to_reference
