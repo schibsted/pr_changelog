@@ -23,6 +23,14 @@ class CLITest < Minitest::Test
     end
   end
 
+  def test_command_with_one_reference
+    args = ['v0.3.0']
+    cli = PrChangelog::CLI.new(args)
+
+    assert_equal 'v0.3.0', cli.from_reference
+    assert_equal 'master', cli.to_reference
+  end
+
   def test_command_with_two_references
     args = ['v0.3.0', 'v0.3.2']
     cli = PrChangelog::CLI.new(args)
