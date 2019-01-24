@@ -26,8 +26,6 @@ module PrChangelog
 
     attr_reader :format, :from_reference, :to_reference
 
-    def initialize(args)
-      raise HelpWanted.new if args.include?('--help') || args.include?('-h')
 
       @format = PrChangelog.config.default_format
       if args.include?('--format')
@@ -35,6 +33,8 @@ module PrChangelog
         @format = args.delete_at(next_index)
         args.delete('--format')
       end
+    def initialize(raw_args, releases = nil)
+      raise HelpWanted.new if args.include_flags?('-h', '--help')
 
       @from_reference, @to_reference = args.last(2)
       @to_reference ||= 'master'
