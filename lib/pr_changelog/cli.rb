@@ -39,6 +39,7 @@ module PrChangelog
       [Options]
 
         -h, --help\tShow this help
+        -l, --last-release\tSets from_reference and to_reference to the last release and the previous one
         --format FORMAT_NAME\t(default "plain"), options ("pretty", "plain")
 
       [Examples]
@@ -46,6 +47,14 @@ module PrChangelog
         Listing the unreleased changes
 
         $ pr_changelog
+
+        Listing the changes from the last release
+
+        $ pr_changelog --last-release
+
+        Listing the changes between two given git references
+
+        $ pr_changelog reference_A reference_B
     HELP
 
     class InvalidInputs < StandardError
@@ -55,6 +64,9 @@ module PrChangelog
     end
 
     attr_reader :format, :from_reference, :to_reference
+
+    class CannotDetermineRelease < StandardError
+    end
 
 
     def initialize(raw_args, releases = nil)
@@ -68,6 +80,13 @@ module PrChangelog
       @from_reference, @to_reference = args.last(2)
       @from_reference ||= @releases.last_release
       @to_reference ||= 'master'
+
+      if args.include_flags?('-l', '--last-release')
+        last_release_pair = @releases.last_release_pair
+        raise CannotDetermineRelease if last_release_pair.length != 2
+
+        @from_reference, @to_reference = last_release_pair
+      end
 
       return if @from_reference && @to_reference
 

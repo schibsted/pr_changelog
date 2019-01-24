@@ -48,6 +48,27 @@ class CLITest < Minitest::Test
     assert_equal 'v0.3.2', cli.to_reference
   end
 
+  def test_command_with_last_release_flag
+    args = ['--last-release']
+
+    test_releases = TestReleases.new
+
+    cli = PrChangelog::CLI.new(args, test_releases)
+
+    assert_equal 'v0.3.1', cli.from_reference
+    assert_equal 'v0.3.2', cli.to_reference
+  end
+
+  def test_command_with_last_release_flag_when_cannot_determine_last_release
+    args = ['--last-release']
+
+    test_releases = TestInvalidReleases.new
+
+    assert_raises PrChangelog::CLI::CannotDetermineRelease do
+      PrChangelog::CLI.new(args, test_releases)
+    end
+  end
+
   def test_passing_a_format_value
     args = ['--format', 'pretty', 'v0.3.1', 'v0.3.2']
 
