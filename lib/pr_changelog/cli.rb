@@ -3,6 +3,36 @@
 module PrChangelog
   # Used for the implementation of the exposed executable for this gem
   class CLI
+
+    class Args
+      def initialize(raw_args)
+        @raw_args = raw_args
+      end
+
+      def include?(flag)
+        raw_args.include?(flag)
+      end
+
+      def value_for(flag)
+        return nil unless raw_args.index(flag)
+
+        next_index = raw_args.index(flag) + 1
+        value = raw_args.delete_at(next_index)
+        raw_args.delete(flag)
+        value
+      end
+
+      def include_flags?(flag, flag_variation)
+        include?(flag) || include?(flag_variation)
+      end
+
+      def last(number)
+        raw_args.last(number)
+      end
+
+      attr_reader :raw_args
+    end
+
     HELP_TEXT = <<~HELP
       Usage: pr_changelog [options] from_reference to_reference
 
@@ -27,14 +57,12 @@ module PrChangelog
     attr_reader :format, :from_reference, :to_reference
 
 
-      @format = PrChangelog.config.default_format
-      if args.include?('--format')
-        next_index = args.index('--format') + 1
-        @format = args.delete_at(next_index)
-        args.delete('--format')
-      end
     def initialize(raw_args, releases = nil)
+      args = Args.new(raw_args)
       raise HelpWanted.new if args.include_flags?('-h', '--help')
+
+      @format = args.value_for('--format') || PrChangelog.config.default_format
+
 
       @from_reference, @to_reference = args.last(2)
       @to_reference ||= 'master'
