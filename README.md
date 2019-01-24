@@ -100,6 +100,40 @@ Will produce:
   - #60: 👨‍💻 Setup hockeyapp for crash reporting
 ```
 
+It's also possible to not pass any git references if you have sorted git tags. For example, if currently in your project you have the following tags:
+
+```
+$ git tag -l
+0.1.0
+0.1.1
+0.2.0
+0.2.1
+0.2.2
+```
+
+Then you can get the changes from the last release to `'master'` with:
+
+```
+$ pr_changelog
+
+## Changes since 0.2.2 to master
+
+...
+```
+
+If you want to get the changes for the last release (between `0.2.1` and `0.2.2`) you can execute:
+
+```
+$ pr_changelog --last-release
+
+## Changes since 0.2.1 to 0.2.2
+
+...
+```
+
+
+
+
 ## Configuration
 
 Change the emojis or add your own in a `.pr_changelog.json` file:

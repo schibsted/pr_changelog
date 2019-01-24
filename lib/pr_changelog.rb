@@ -3,6 +3,8 @@
 require 'pr_changelog/version'
 require 'pr_changelog/config'
 require 'pr_changelog/extensions/string'
+require 'pr_changelog/releases'
+require 'pr_changelog/cli/args'
 require 'pr_changelog/cli'
 require 'pr_changelog/git_proxy'
 require 'pr_changelog/tag'

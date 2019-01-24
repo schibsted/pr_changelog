@@ -9,13 +9,22 @@ module PrChangelog
       [Options]
 
         -h, --help\tShow this help
+        -l, --last-release\tSets from_reference and to_reference to the last release and the previous one
         --format FORMAT_NAME\t(default "plain"), options ("pretty", "plain")
 
       [Examples]
 
-        Listing the changes for the last release (since the previous to the last one)
+        Listing the unreleased changes
 
         $ pr_changelog
+
+        Listing the changes from the last release
+
+        $ pr_changelog --last-release
+
+        Listing the changes between two given git references
+
+        $ pr_changelog reference_A reference_B
     HELP
 
     class InvalidInputs < StandardError
@@ -26,22 +35,31 @@ module PrChangelog
 
     attr_reader :format, :from_reference, :to_reference
 
-    def initialize(args)
-      raise HelpWanted.new if args.include?('--help') || args.include?('-h')
+    class CannotDetermineRelease < StandardError
+    end
 
-      @format = PrChangelog.config.default_format
-      if args.include?('--format')
-        next_index = args.index('--format') + 1
-        @format = args.delete_at(next_index)
-        args.delete('--format')
-      end
+    def initialize(raw_args, releases = nil)
+      args = Args.new(raw_args)
+      raise HelpWanted if args.include_flags?('-h', '--help')
+
+      @format = args.value_for('--format') || PrChangelog.config.default_format
+
+      @releases = releases || Releases.new
 
       @from_reference, @to_reference = args.last(2)
+      @from_reference ||= @releases.last_release
       @to_reference ||= 'master'
+
+      if args.include_flags?('-l', '--last-release')
+        last_release_pair = @releases.last_release_pair
+        raise CannotDetermineRelease if last_release_pair.length != 2
+
+        @from_reference, @to_reference = last_release_pair
+      end
 
       return if @from_reference && @to_reference
 
-      raise InvalidInputs.new
+      raise InvalidInputs
     end
 
     def run
