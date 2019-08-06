@@ -1,0 +1,8 @@
+- #499: LoginEntryView refinements
+- #500: Neighborhood profile: add collection view with cards
+- #498: Bring colors from superview into bottom sheet
+- #497: Improve pull request template with tables
+- #496: Animate night mode transition
+- #495: Add isDefault to FavoriteFolderViewModel
+- #486: Update error and success icons
+- #493: Favorite folders: add refresh control
