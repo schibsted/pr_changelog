@@ -9,11 +9,22 @@ module PrChangelog
     end
 
     def last_release
-      git_proxy.git_tags_list.last
+      sorted_tags.last
     end
 
     def last_release_pair
-      git_proxy.git_tags_list.last(2)
+      sorted_tags.last(2)
+    end
+
+    private
+
+    def sorted_tags
+      git_proxy.git_tags_list.sort_by { |tag| tag_value(tag) }
+    end
+
+    def tag_value(tag)
+      components = tag.split('.')
+      components[0].to_i * 100_000 + components[1].to_i * 1_000 + components[2].to_i
     end
   end
 end
