@@ -13,7 +13,7 @@ module PrChangelog
 
     def to_s
       if tag.nil?
-        "- #{pr_number}: #{title.first_lowercase}"
+        "- #{pr_number}: #{formatted_title}"
       else
         "- #{pr_number}: #{tag}: #{title.first_lowercase}"
       end

@@ -6,3 +6,5 @@
 - #495: Add isDefault to FavoriteFolderViewModel
 - #486: Update error and success icons
 - #493: Favorite folders: add refresh control
+- #492: Present a temporary view infront of mapview
+- #490: Feature: FavoriteAdsList

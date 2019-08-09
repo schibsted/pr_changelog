@@ -4,7 +4,7 @@ require 'test_helper'
 
 class NotReleasedSquashedChangesTest < Minitest::Test
   class TestGit
-    def merge_commits_between(_from_ref, _to_ref)
+    def commits_between(_from_ref, _to_ref)
       File.readlines('test/sample_data/raw_squash_log.txt').join('').chomp
     end
   end
@@ -13,7 +13,7 @@ class NotReleasedSquashedChangesTest < Minitest::Test
 
   def setup
     @test_git = TestGit.new
-    @changes = PrChangelog::NotReleasedChanges.new('0.3.0', '0.5.0', test_git)
+    @changes = PrChangelog::NotReleasedSquashChanges.new('0.3.0', '0.5.0', test_git)
   end
 
   def test_plain_format

@@ -11,6 +11,7 @@ require 'pr_changelog/tag'
 require 'pr_changelog/change_line'
 require 'pr_changelog/grouped_changes'
 require 'pr_changelog/not_released_changes'
+require 'pr_changelog/not_released_squash_changes'
 
 # Main module
 module PrChangelog
