@@ -7,6 +7,7 @@ module PrChangelog
   class Config
     DEFAULTS = {
       format: 'plain',
+      strategy: 'merge',
       tags: [
         {
           prefix: 'feature',
@@ -47,6 +48,10 @@ module PrChangelog
 
     def default_format
       loaded_data[:format] || DEFAULTS[:format]
+    end
+
+    def default_strategy
+      loaded_data[:strategy] || DEFAULTS[:strategy]
     end
 
     def tags

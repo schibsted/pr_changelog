@@ -10,8 +10,10 @@ require 'pr_changelog/git_proxy'
 require 'pr_changelog/tag'
 require 'pr_changelog/change_line'
 require 'pr_changelog/grouped_changes'
+require 'pr_changelog/base_commit_strategy'
+require 'pr_changelog/merge_commit_strategy'
+require 'pr_changelog/squash_commit_strategy'
 require 'pr_changelog/not_released_changes'
-require 'pr_changelog/not_released_squash_changes'
 
 # Main module
 module PrChangelog

@@ -9,11 +9,12 @@ class NotReleasedSquashedChangesTest < Minitest::Test
     end
   end
 
-  attr_reader :test_git, :changes
+  attr_reader :changes
 
   def setup
-    @test_git = TestGit.new
-    @changes = PrChangelog::NotReleasedSquashChanges.new('0.3.0', '0.5.0', test_git)
+    test_git = TestGit.new
+    strategy = PrChangelog::SquashCommitStrategy.new('0.3.0', '0.5.0', test_git)
+    @changes = PrChangelog::NotReleasedChanges.new(strategy)
   end
 
   def test_plain_format

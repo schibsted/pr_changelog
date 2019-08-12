@@ -1,9 +1,9 @@
+
 # frozen_string_literal: true
 
 module PrChangelog
-  # Calculates a list of not released changes from `base_ref` to `current_ref`
-  # those changes consist of the merged pull-request title
-  class NotReleasedSquashChanges
+  # Todo
+  class SquashCommitStrategy < BaseCommitStrategy
     SQUASH_COMMIT_FORMAT = /^GitHub: (?<title>[^(]+) \((?<pr_number>#\d+)\)$/.freeze
     TAGGED_TITLE = /^(?<tag>.+):\s*(?<title>.+)$/.freeze
 
@@ -13,26 +13,6 @@ module PrChangelog
       @base_ref    = base_ref
       @current_ref = current_ref
       @git_proxy   = git_proxy
-    end
-
-    def formatted_changelog
-      if parsed_change_list.count.positive?
-        parsed_change_list.map(&:to_s).join("\n")
-      else
-        no_changes_found
-      end
-    end
-
-    private
-
-    def no_changes_found
-      'No changes found'
-    end
-
-    def parsed_change_list
-      @parsed_change_list ||= parsed_commits.map do |commit_line|
-        format_commit(commit_line)
-      end
     end
 
     def parsed_commits
@@ -56,6 +36,8 @@ module PrChangelog
       # end
     end
 
+    private
+
     def commits_not_merged_into_base_ref
       git_proxy.commits_between(base_ref, current_ref)
     end
@@ -67,7 +49,6 @@ module PrChangelog
 
     def pull_request_title_for(github_commit_title)
       md = github_commit_title.match(SQUASH_COMMIT_FORMAT)
-      # require 'pry'; binding.pry
       md[:title] if md
     end
   end
