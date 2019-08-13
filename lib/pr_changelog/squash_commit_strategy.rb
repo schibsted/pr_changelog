@@ -2,7 +2,8 @@
 # frozen_string_literal: true
 
 module PrChangelog
-  # Todo
+  # A strategy to get the changes between the two references based on the
+  # squash commits
   class SquashCommitStrategy < BaseCommitStrategy
     SQUASH_COMMIT_FORMAT = /^GitHub( Enterprise)?: (?<title>.+) \((?<pr_number>#\d+)\)$/.freeze
     TAGGED_TITLE = /^(?<tag>.+):\s*(?<title>.+)$/.freeze
