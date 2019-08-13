@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 module PrChangelog
-  # Todo
+  # A strategy that given two references will return the filtered commit changes
+  # based on the merge commits
   class MergeCommitStrategy < BaseCommitStrategy
     MERGE_COMMIT_FORMAT = /Merge pull request (?<pr_number>#\d+) .*/.freeze
     TAGGED_TITLE = /^(?<tag>.+):\s*(?<title>.+)$/.freeze

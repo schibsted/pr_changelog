@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module PrChangelog
-  # Todo
+  # A "protocol"-like base class for the extracting the change commit strategies
   class BaseCommitStrategy
     def parsed_commits
       raise 'Not implemented'
