@@ -1,10 +1,10 @@
-- #499: LoginEntryView refinements
-- #500: Neighborhood profile: add collection view with cards
+- #499: Improvement: `LoginEntryView` refinements
+- #500: Improvement: neighborhood profile: add collection view with cards
 - #498: Bring colors from superview into bottom sheet
-- #497: Improve pull request template with tables
-- #496: Animate night mode transition
-- #495: Add isDefault to FavoriteFolderViewModel
-- #486: Update error and success icons
-- #493: Favorite folders: add refresh control
-- #492: Present a temporary view infront of mapview
-- #490: Feature: FavoriteAdsList
+- #497: Improvement: improve pull request template with tables
+- #496: Improvement: animate night mode transition
+- #495: Feature: add isDefault to FavoriteFolderViewModel
+- #486: Internal: update error and success icons
+- #493: Feature: favorite folders: add refresh control
+- #492: Fix: present a temporary view infront of mapview
+- #490: Feature: favoriteAdsList

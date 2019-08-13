@@ -6,7 +6,7 @@ module PrChangelog
   # squash commits
   class SquashCommitStrategy < BaseCommitStrategy
     SQUASH_COMMIT_FORMAT = /^GitHub( Enterprise)?: (?<title>.+) \((?<pr_number>#\d+)\)$/.freeze
-    TAGGED_TITLE = /^(?<tag>.+):\s*(?<title>.+)$/.freeze
+    TAGGED_TITLE = /^(?<tag>[^:]+):\s*(?<title>.+)$/.freeze
 
     attr_reader :base_ref, :current_ref, :git_proxy
 
@@ -29,12 +29,12 @@ module PrChangelog
       pr_number = pull_request_number_for(commit_line)
       commit_title = pull_request_title_for(commit_line)
       commit_title.strip!
-      # match = commit_title.match(TAGGED_TITLE)
-      # if match
-        # ChangeLine.new(pr_number, match[:tag], match[:title])
-      # else
+      match = commit_title.match(TAGGED_TITLE)
+      if match
+        ChangeLine.new(pr_number, match[:tag], match[:title])
+      else
         ChangeLine.new(pr_number, nil, commit_title)
-      # end
+      end
     end
 
     private

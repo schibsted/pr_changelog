@@ -1,0 +1,19 @@
+[New features]
+  - #495: ⭐️ Add isDefault to FavoriteFolderViewModel
+  - #493: ⭐️ Favorite folders: add refresh control
+  - #490: ⭐️ FavoriteAdsList
+
+[Fixes]
+  - #492: 🐛 Present a temporary view infront of mapview
+
+[Improvements]
+  - #499: 💎 `LoginEntryView` refinements
+  - #500: 💎 Neighborhood profile: add collection view with cards
+  - #497: 💎 Improve pull request template with tables
+  - #496: 💎 Animate night mode transition
+
+[Internal]
+  - #486: 👨‍💻 Update error and success icons
+
+[Unclassified]
+  - #498: ❓ Bring colors from superview into bottom sheet
