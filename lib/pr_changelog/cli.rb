@@ -11,6 +11,7 @@ module PrChangelog
         -h, --help\tShow this help
         -l, --last-release\tSets from_reference and to_reference to the last release and the previous one
         --format FORMAT_NAME\t(default "plain"), options ("pretty", "plain")
+        --strategy STRATEGY_NAME\tIs the strategy used to merge pull requests (default "merge"), options ("merge", "squash").
 
       [Examples]
 
@@ -33,7 +34,7 @@ module PrChangelog
     class HelpWanted < StandardError
     end
 
-    attr_reader :format, :from_reference, :to_reference
+    attr_reader :format, :strategy, :from_reference, :to_reference
 
     class CannotDetermineRelease < StandardError
     end
@@ -43,6 +44,8 @@ module PrChangelog
       raise HelpWanted if args.include_flags?('-h', '--help')
 
       @format = args.value_for('--format') || PrChangelog.config.default_format
+
+      @strategy = args.value_for('--strategy') || PrChangelog.config.default_strategy
 
       @releases = releases || Releases.new
 
@@ -62,9 +65,19 @@ module PrChangelog
       raise InvalidInputs
     end
 
+    def build_strategy
+      if strategy == 'merge'
+        MergeCommitStrategy.new(from_reference, to_reference)
+      elsif strategy == 'squash'
+        SquashCommitStrategy.new(from_reference, to_reference)
+      else
+        raise "Strategy '#{strategy}' not recognized."
+      end
+    end
+
     def run
-      changes = NotReleasedChanges.new(from_reference, to_reference)
-      puts "## Changes since #{from_reference} to #{to_reference}\n\n"
+      changes = NotReleasedChanges.new(build_strategy)
+      puts "## Changes since #{from_reference} to #{to_reference} (#{strategy})\n\n"
 
       if format == 'pretty'
         puts changes.grouped_formatted_changelog

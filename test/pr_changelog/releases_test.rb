@@ -7,7 +7,19 @@ class ReleasesTest < Minitest::Test
     attr_reader :expected_tags
 
     def initialize(expected_tags = nil)
-      @expected_tags = expected_tags || ['0.1.0', '0.2.1', '0.2.2', '0.3.0']
+      default_tags = [
+        '1.10.0',
+        '1.10.1',
+        '1.11.0',
+        '1.12.0',
+        '1.12.1',
+        '1.7.0',
+        '1.7.1',
+        '1.8.0',
+        '1.9.2',
+        '1.9.3'
+      ]
+      @expected_tags = expected_tags || default_tags
     end
 
     def git_tags_list
@@ -19,14 +31,14 @@ class ReleasesTest < Minitest::Test
     test_git = TestGit.new
     releases = PrChangelog::Releases.new(test_git)
 
-    assert_equal '0.3.0', releases.last_release
+    assert_equal '1.12.1', releases.last_release
   end
 
   def test_last_release_pair
     test_git = TestGit.new
     releases = PrChangelog::Releases.new(test_git)
 
-    assert_equal ['0.2.2', '0.3.0'], releases.last_release_pair
+    assert_equal ['1.12.0', '1.12.1'], releases.last_release_pair
   end
 
   def test_last_release_with_no_tags

@@ -1,0 +1,118 @@
+- GitHub Enterprise: Improvement: `LoginEntryView` refinements (#499)
+  * Replace layoutMargin constraints for edge constraints + constants
+   Because the layoutMargin constraints don't work on iOS10
+
+  * Favor the `configure(for:)` method for views in `LoginEntryView`
+
+  * Add settings button to the `LoginEntryView`
+
+  * Replace LoginEntryDemoView by a view controller
+   As the login entry view will be used in the context of full screen view
+  controllers with a tabBar, I'm trying to replicate the usage as close as
+  possible to ensure testing done in FinniversKit will reflect the behavior in
+  the Finn app.
+
+  * Only show settings button in LoginEntryView if the view model says so
+
+  * Refine constraints
+
+  * Update reference image for the LoginEntryView
+
+  * Fix layout for the messaging tab
+
+  * SettingsView determines which element is the last one in the section
+   Instead of that data coming from the view model. Because the data source will
+   always know which item is the last one in the section, then it should
+  configure the cell accordingly instead of setting this through the view model
+
+
+  * Allow `SettingsViewDelegate` to set a footer view
+
+- GitHub: Improvement: Neighborhood profile: add collection view with cards (#500)
+  * Add neighborhood profile view and demo view
+
+  * Add demo for neighbourhood profile view
+
+  * Setup collection view layout
+
+  * Implement header view
+
+  * Fix header view constraints
+
+  * Add snapshot tests
+
+- GitHub: Bring colors from superview into bottom sheet (#498)
+
+- GitHub: Improvement: Improve pull request template with tables (#497)
+
+- GitHub: Update FinniversKit.podspec
+
+- GitHub: Improvement: Animate night mode transition (#496)
+
+- GitHub: Feature: Add isDefault to FavoriteFolderViewModel (#495)
+
+- GitHub: Internal: Update error and success icons (#486)
+  * Update error and success icons
+
+  * Update icon sizes
+
+  * Update snapshot
+
+  * Add updated snapshot
+
+- GitHub: Update FinniversKit.podspec
+
+- GitHub: Feature: Favorite folders: add refresh control (#493)
+  * Add refresh control to the folders list
+
+  * Show/hide refresh control when needed
+
+- GitHub: Fix: Present a temporary view infront of mapview (#492)
+
+- GitHub: Feature: FavoriteAdsList (#490)
+  * Rename viewModel for favorite ads cell
+
+  * Add view FavoriteAdsListView
+
+  * Add headerView for tableView
+
+  * Add sortingView for tableHeader, add delegate methods
+
+  * Add demo
+
+  * Add searchBar delegate
+
+  * Pull demo viewmodel creation into helper
+
+  * Set correct font for title in tableHeader
+
+  * Set loadingColor for remoteImageView
+
+  * Formatting
+
+  * Add FavoriteAdsSectionHeaderView
+
+  * Add datasource for demo, sorting/grouping favorites
+
+  * Refactor protocol and use dataSource to populate tableView
+
+  * Set section header height to .leastNonzeroMagnitude if title is nil
+
+  * Change constraints to prevent the header from jumping when pressing search
+
+  * Filter ads based on input in searchBar
+
+  * Update delegate method signatures
+
+  * End searchBar editing on taps
+
+  * Set empty tableFooterView
+
+  * Fix swiftlint issue
+
+  * Added snapshot tests
+
+  * Rearrange placement of folders within the project
+
+  * Address PR comments
+
