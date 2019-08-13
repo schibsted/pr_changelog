@@ -4,7 +4,7 @@
 module PrChangelog
   # Todo
   class SquashCommitStrategy < BaseCommitStrategy
-    SQUASH_COMMIT_FORMAT = /^GitHub: (?<title>[^(]+) \((?<pr_number>#\d+)\)$/.freeze
+    SQUASH_COMMIT_FORMAT = /^GitHub( Enterprise)?: (?<title>.+) \((?<pr_number>#\d+)\)$/.freeze
     TAGGED_TITLE = /^(?<tag>.+):\s*(?<title>.+)$/.freeze
 
     attr_reader :base_ref, :current_ref, :git_proxy
