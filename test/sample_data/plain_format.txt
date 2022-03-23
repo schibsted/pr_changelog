@@ -1,3 +1,4 @@
+- #91: Internal: ignore ci annotations
 - #86: Internal: update to android studio 3.3
 - #87: Improvement: update system notification channels from backend
 - #85: Feature: notification settings UI and sync with backend and system settings

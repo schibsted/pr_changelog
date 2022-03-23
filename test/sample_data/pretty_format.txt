@@ -26,6 +26,7 @@
   - #59: 💎 Support opening external links on canvas stories
 
 [Internal]
+  - #91: 👨‍💻 Ignore ci annotations
   - #86: 👨‍💻 Update to android studio 3.3
   - #82: 👨‍💻 Fix the notification keys
   - #76: 👨‍💻 Use beta track for releasing the app
