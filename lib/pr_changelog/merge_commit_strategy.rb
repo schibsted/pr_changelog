@@ -17,7 +17,7 @@ module PrChangelog
 
     def parsed_commits
       merge_commits_not_merged_into_base_ref
-        .split('- ')
+        .split("\n- ")
         .reject(&:empty?)
         .map { |e| e.split("\n") }
         .select { |pair| pair.count == 2 }

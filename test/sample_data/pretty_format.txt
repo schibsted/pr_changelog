@@ -12,6 +12,7 @@
   - #67: 🐛 Swipe on text in Daily Summary
 
 [Improvements]
+  - #90: 💎 My Feature - add more info
   - #87: 💎 Update system notification channels from backend
   - #84: 💎 Allow cards format to be used not only on the weekly summary
   - #80: 💎 Add app version number to the placeholder feedback email

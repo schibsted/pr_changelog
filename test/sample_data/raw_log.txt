@@ -1,5 +1,7 @@
 - GitHub Enterprise: Merge pull request #91 from schibsted_repo/feature/settings
   Internal: ignore ci annotations [skip ci]
+- GitHub Enterprise: Merge pull request #90 from schibsted_repo/feature/settings
+  Improvement: My Feature - add more info
 - GitHub Enterprise: Merge pull request #86 from schibsted_repo/internal/update-to-android-studio-3.3
   Internal: Update to android studio 3.3
 - GitHub Enterprise: Merge pull request #87 from schibsted_repo/feature/settings
