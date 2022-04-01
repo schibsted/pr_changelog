@@ -5,10 +5,12 @@ module PrChangelog
   class ChangeLine
     attr_reader :pr_number, :tag, :title
 
+    SKIP_CI_PATTERN = /\s*\[(skip ci)\]\s*/im
+
     def initialize(pr_number, tag, title)
       @pr_number = pr_number
       @tag = tag
-      @title = title
+      @title = title.gsub(SKIP_CI_PATTERN, '')
     end
 
     def to_s
